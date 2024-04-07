@@ -1,0 +1,31 @@
+<div *ngIf="recipe">
+  <h2>{{ recipe.title }}</h2>
+  <p><strong>Recipe ID:</strong> {{ recipe.id }}</p>
+  <p><strong>Servings:</strong> {{ recipe.servings }}</p>
+  <p><strong>Preparation Time:</strong> {{ recipe.readyInMinutes }} minutes</p>
+
+  <h3>Ingredients:</h3>
+  <ul>
+    <li *ngFor="let ingredient of recipe.extendedIngredients">
+      {{ ingredient.original }}
+    </li>
+  </ul>
+
+  <h3>Instructions:</h3>
+  <ol>
+    <li *ngFor="let instruction of recipe.analyzedInstructions[0]?.steps">
+      {{ instruction.step }}
+    </li>
+  </ol>
+
+  <h3>Allergens:</h3>
+  <ul>
+    <li *ngFor="let allergen of recipe.allergens">
+      {{ allergen }}
+    </li>
+  </ul>
+
+  <h3>Nutrition Information:</h3>
+  <p><strong>Calories:</strong> {{ recipe.nutrition?.nutrients[0]?.amount }} {{ recipe.nutrition?.nutrients[0]?.unit }}</p>
+
+</div>

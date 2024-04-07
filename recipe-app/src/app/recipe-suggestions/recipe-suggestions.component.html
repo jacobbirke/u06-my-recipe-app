@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Recipe Suggestions</h2>
+  <div class="filters mb-3">
+    <label>Appetizer</label>
+    <input type="checkbox" [(ngModel)]="filterOptions.appetizer" (change)="getRecipes()">
+    <label>Main Course</label>
+    <input type="checkbox" [(ngModel)]="filterOptions.mainCourse" (change)="getRecipes()">
+    <label>Dessert</label>
+    <input type="checkbox" [(ngModel)]="filterOptions.dessert" (change)="getRecipes()">
+    <label>Gluten</label>
+    <input type="checkbox" [(ngModel)]="filterOptions.gluten" (change)="getRecipes()">
+    <label>Egg</label>
+    <input type="checkbox" [(ngModel)]="filterOptions.egg" (change)="getRecipes()">
+    <label>Peanut</label>
+    <input type="checkbox" [(ngModel)]="filterOptions.peanut" (change)="getRecipes()">
+  </div>
+  <div *ngIf="loading; else recipesContent" class="text-center">Loading...</div>
+  <ng-template #recipesContent>
+    <div *ngIf="error" class="text-danger">{{ error }}</div>
+    <div *ngFor="let recipe of filteredRecipes" class="card mb-3" [routerLink]="['/recipes', recipe.id]">
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.title }}</h5>
+      </div>
+    </div>
+  </ng-template>
+</div>
