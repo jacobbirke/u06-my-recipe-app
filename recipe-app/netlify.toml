@@ -1,8 +1,0 @@
-[build]
-  publish = "dist"
-  command = "/usr/local/bin/ng build --prod"
-
-[[redirects]]
-  from = "/*"
-  to = "/app.component.html"
-  status = 200
