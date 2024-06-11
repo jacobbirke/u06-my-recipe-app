@@ -10,18 +10,18 @@ export class RegisterComponent {
   name: string = '';
   email: string = '';
   password: string = '';
-  passwordConfirmation: string = '';
+  password_confirmation: string = '';
   error: string = '';
 
   constructor(private authService: AuthService) {}
 
   register() {
-    if (this.password !== this.passwordConfirmation) {
+    if (this.password !== this.password_confirmation) {
       this.error = 'Lösenorden matchar inte.';
       return;
     }
 
-    this.authService.register(this.name, this.email, this.password).subscribe(
+    this.authService.register(this.name, this.email, this.password, this.password_confirmation).subscribe(
       response => {
       },
       error => {
