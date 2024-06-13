@@ -16,7 +16,7 @@ export class AppComponent {
     this.authService.logout().subscribe(
       response => {
         // Logga ut lyckad
-        this.router.navigate(['/suggestions']);
+        this.router.navigate(['/login']);
       },
       error => {
         // Hantera eventuella fel här
