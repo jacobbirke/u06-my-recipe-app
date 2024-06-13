@@ -3,6 +3,7 @@
   <p><strong>Recipe ID:</strong> {{ recipe.id }}</p>
   <p><strong>Servings:</strong> {{ recipe.servings }}</p>
   <p><strong>Preparation Time:</strong> {{ recipe.readyInMinutes }} minutes</p>
+  <img [src]="recipe.image" alt="{{ recipe.title }}">
 
   <h3>Ingredients:</h3>
   <ul>

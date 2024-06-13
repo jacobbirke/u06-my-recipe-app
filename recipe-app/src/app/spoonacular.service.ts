@@ -1,31 +1,32 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RecipeResponse } from './spoonacular.models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpoonacularService {
-  private apiKey: string = 'a10289e5e92644fc9ce68a08c08ca992'; 
+  private apiKey: string = '5af8e6d79d4242259b4df226aaadc9d4';
 
   constructor(private http: HttpClient) { }
 
-  getRecipeSuggestions(filterOptions: any): Observable<RecipeResponse> {
-    let params = `?sort=random`;
+  getRecipeSuggestions(filterOptions: any): Observable<any> {
+    let params = `?apiKey=${this.apiKey}&sort=random`;
 
-    // Lägg till måltidstyp om den är vald
-    if (filterOptions.förrätt) {
-      params += `&type=appetizer`;
+    const types: string[] = [];
+    if (filterOptions.appetizer) {
+      types.push('appetizer');
     }
-    if (filterOptions.huvudrätt) {
-      params += `&type=main course`;
+    if (filterOptions.mainCourse) {
+      types.push('main course');
     }
-    if (filterOptions.efterrätt) {
-      params += `&type=dessert`;
+    if (filterOptions.dessert) {
+      types.push('dessert');
+    }
+    if (types.length > 0) {
+      params += `&type=${types.join(',')}`;
     }
 
-    // Lägg till intoleranser om de är valda
     if (filterOptions.gluten) {
       params += `&intolerances=gluten`;
     }
@@ -36,18 +37,10 @@ export class SpoonacularService {
       params += `&intolerances=peanut`;
     }
 
-    // Skapa en HttpHeaders-instans för att lägga till Authorization-header
-    const headers = new HttpHeaders().set('Authorization', `apiKey ${this.apiKey}`);
-
-    // Gör en GET-förfrågan med de specificerade parametrarna och headers
-    return this.http.get<RecipeResponse>(`https://api.spoonacular.com/recipes/complexSearch${params}`, { headers });
+    return this.http.get<any>(`https://api.spoonacular.com/recipes/complexSearch${params}`);
   }
 
   getRecipeDetails(recipeId: number): Observable<any> {
-    // Skapa en HttpHeaders-instans för att lägga till Authorization-header
-    const headers = new HttpHeaders().set('Authorization', `apiKey ${this.apiKey}`);
-
-    // Gör en GET-förfrågan med headers
-    return this.http.get<any>(`https://api.spoonacular.com/recipes/${recipeId}/information`, { headers });
+    return this.http.get<any>(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${this.apiKey}`);
   }
 }

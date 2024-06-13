@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'suggestions', component: RecipeSuggestionsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'recipes/:id', component: RecipeDetailsComponent }, // Lägg till vägen till RecipeDetailsComponent
+  { path: 'recipes/:id', component: RecipeDetailsComponent }, 
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Om ingen väg matchar, omdirigera till /login
 ];
 

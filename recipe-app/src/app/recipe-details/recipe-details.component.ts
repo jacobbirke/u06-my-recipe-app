@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../recipe.service';
+import { SpoonacularService } from './../spoonacular.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -13,7 +14,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private recipeService: RecipeService
+    private SpoonacularService: SpoonacularService
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +28,7 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   getRecipeDetails(id: number): void {
-    this.recipeService.getRecipeDetails(id).subscribe(response => {
+    this.SpoonacularService.getRecipeDetails(id).subscribe(response => {
       this.recipe = response;
     });
   }

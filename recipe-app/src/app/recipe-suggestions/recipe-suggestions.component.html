@@ -1,18 +1,45 @@
 <div class="container mt-4">
   <h2 class="mb-4">Recipe Suggestions</h2>
-  <div class="filters mb-3">
-    <label>Appetizer</label>
-    <input type="checkbox" [(ngModel)]="filterOptions.appetizer" (change)="getRecipes()">
-    <label>Main Course</label>
-    <input type="checkbox" [(ngModel)]="filterOptions.mainCourse" (change)="getRecipes()">
-    <label>Dessert</label>
-    <input type="checkbox" [(ngModel)]="filterOptions.dessert" (change)="getRecipes()">
-    <label>Gluten</label>
-    <input type="checkbox" [(ngModel)]="filterOptions.gluten" (change)="getRecipes()">
-    <label>Egg</label>
-    <input type="checkbox" [(ngModel)]="filterOptions.egg" (change)="getRecipes()">
-    <label>Peanut</label>
-    <input type="checkbox" [(ngModel)]="filterOptions.peanut" (change)="getRecipes()">
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col-12">
+        <h4>Filters</h4>
+      </div>
+      <div class="col-md-4">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="appetizer" [(ngModel)]="filterOptions.appetizer"
+            (change)="getRecipes()">
+          <label class="form-check-label" for="appetizer">Appetizer</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="mainCourse" [(ngModel)]="filterOptions.mainCourse"
+            (change)="getRecipes()">
+          <label class="form-check-label" for="mainCourse">Main Course</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="dessert" [(ngModel)]="filterOptions.dessert"
+            (change)="getRecipes()">
+          <label class="form-check-label" for="dessert">Dessert</label>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gluten" [(ngModel)]="filterOptions.gluten"
+            (change)="getRecipes()">
+          <label class="form-check-label" for="gluten">Gluten-free</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="egg" [(ngModel)]="filterOptions.egg"
+            (change)="getRecipes()">
+          <label class="form-check-label" for="egg">Egg-free</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="peanut" [(ngModel)]="filterOptions.peanut"
+            (change)="getRecipes()">
+          <label class="form-check-label" for="peanut">Peanut-free</label>
+        </div>
+      </div>
+    </div>
   </div>
   <div *ngIf="loading; else recipesContent" class="text-center">Loading...</div>
   <ng-template #recipesContent>
@@ -20,6 +47,7 @@
     <div *ngFor="let recipe of filteredRecipes" class="card mb-3" [routerLink]="['/recipes', recipe.id]">
       <div class="card-body">
         <h5 class="card-title">{{ recipe.title }}</h5>
+        <img [src]="recipe.image" alt="{{ recipe.title }}">
       </div>
     </div>
   </ng-template>

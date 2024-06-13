@@ -14,7 +14,6 @@ export class RecipeSuggestionsComponent implements OnInit {
     appetizer: false,
     mainCourse: false,
     dessert: false,
-    lactose: false,
     gluten: false,
     egg: false,
     peanut: false
@@ -33,7 +32,8 @@ export class RecipeSuggestionsComponent implements OnInit {
     this.error = null;
     this.spoonacularService.getRecipeSuggestions(this.filterOptions)
       .subscribe(
-        (response: RecipeResponse) => {
+        (response: any) => {
+          console.log("get recipes",response)
           this.recipes = response.results || [];
           this.filterRecipes();
           this.loading = false;
@@ -46,16 +46,6 @@ export class RecipeSuggestionsComponent implements OnInit {
   }
 
   filterRecipes(): void {
-    this.filteredRecipes = this.recipes.filter(recipe => {
-      const intolerances = recipe.intolerances || [];
-      return (
-        (!this.filterOptions.appetizer || recipe.type === 'appetizer') &&
-        (!this.filterOptions.mainCourse || recipe.type === 'mainCourse') &&
-        (!this.filterOptions.dessert || recipe.type === 'dessert') &&
-        (!this.filterOptions.gluten || !intolerances.includes('gluten')) &&
-        (!this.filterOptions.egg || !intolerances.includes('egg')) &&
-        (!this.filterOptions.peanut || !intolerances.includes('peanut'))
-      );
-    });
+    this.filteredRecipes=this.recipes
   }
 }
