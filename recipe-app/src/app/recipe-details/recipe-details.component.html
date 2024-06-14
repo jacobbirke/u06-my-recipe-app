@@ -1,9 +1,9 @@
 <div *ngIf="recipe">
   <h2>{{ recipe.title }}</h2>
+  <img [src]="recipe.image" alt="{{ recipe.title }}">
   <p><strong>Recipe ID:</strong> {{ recipe.id }}</p>
   <p><strong>Servings:</strong> {{ recipe.servings }}</p>
   <p><strong>Preparation Time:</strong> {{ recipe.readyInMinutes }} minutes</p>
-  <img [src]="recipe.image" alt="{{ recipe.title }}">
 
   <h3>Ingredients:</h3>
   <ul>
@@ -19,7 +19,7 @@
     </li>
   </ol>
 
-  <h3>Allergens:</h3>
+  <!-- <h3>Allergens:</h3>
   <ul>
     <li *ngFor="let allergen of recipe.allergens">
       {{ allergen }}
@@ -27,6 +27,7 @@
   </ul>
 
   <h3>Nutrition Information:</h3>
-  <p><strong>Calories:</strong> {{ recipe.nutrition?.nutrients[0]?.amount }} {{ recipe.nutrition?.nutrients[0]?.unit }}</p>
+  <p><strong>Calories:</strong> {{ recipe.nutrition?.nutrients[0]?.amount }} {{ recipe.nutrition?.nutrients[0]?.unit }}
+  </p> -->
 
 </div>

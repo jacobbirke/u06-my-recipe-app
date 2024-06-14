@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RecipeService } from '../recipe.service';
 import { SpoonacularService } from './../spoonacular.service';
 
 @Component({
