@@ -118,7 +118,6 @@ this.spoonacularService.getRecipeSuggestions({
 
 **Example API Request**:
 ```javascript
-// Example API call to get recipe details
 this.spoonacularService.getRecipeDetails(12345).subscribe(response => {
   console.log(response);
 });
