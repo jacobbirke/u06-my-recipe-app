@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset body and html to ensure full background coverage */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%; /* Changed from height to min-height */
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Only hides horizontal overflow to allow vertical scrolling */
+}
+
+/* Full-page gradient background */
+body {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}

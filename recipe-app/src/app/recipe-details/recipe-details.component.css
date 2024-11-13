@@ -1,0 +1,153 @@
+/* General Recipe Detail Container */
+.recipe-detail-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Recipe Title */
+.recipe-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Recipe Image */
+.recipe-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Recipe Information (ID, Servings, Time) */
+.recipe-info {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.recipe-info p {
+  margin: 5px 0;
+}
+
+/* Ingredients Section */
+.recipe-ingredients {
+  margin-bottom: 30px;
+}
+
+.recipe-ingredients h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.recipe-ingredients ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.recipe-ingredients li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Instructions Section */
+.recipe-instructions {
+  margin-bottom: 30px;
+}
+
+.recipe-instructions h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.recipe-instructions ol {
+  padding-left: 20px;
+}
+
+.recipe-instructions li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .recipe-detail-container {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .recipe-title {
+    font-size: 1.6rem; /* Slightly smaller title */
+    margin-bottom: 15px;
+  }
+
+  .recipe-image {
+    width: 100%;
+    height: 200px; /* Limit the image height for smaller screens */
+    object-fit: cover;
+  }
+
+  .recipe-info {
+    font-size: 0.95rem; /* Adjust font size for better readability */
+  }
+
+  .recipe-info p {
+    margin: 5px 0;
+  }
+
+  .recipe-ingredients h3,
+  .recipe-instructions h3 {
+    font-size: 1.4rem; /* Smaller section headers */
+    margin-bottom: 12px;
+  }
+
+  .recipe-ingredients li,
+  .recipe-instructions li {
+    font-size: 1rem; /* Smaller text for ingredients/instructions */
+  }
+}
+
+/* Extra Small Screens (Mobile Phones) */
+@media (max-width: 480px) {
+  .recipe-detail-container {
+    padding: 10px; /* Further reduce padding for mobile phones */
+  }
+
+  .recipe-title {
+    font-size: 1.4rem; /* Smaller title */
+  }
+
+  .recipe-image {
+    width: 100%;
+    height: 180px; /* Smaller height for image */
+  }
+
+  .recipe-info {
+    font-size: 0.9rem; /* Even smaller font size for smaller screens */
+  }
+
+  .recipe-info p {
+    margin: 4px 0;
+  }
+
+  .recipe-ingredients h3,
+  .recipe-instructions h3 {
+    font-size: 1.3rem; /* Reduce header size on mobile */
+  }
+
+  .recipe-ingredients li,
+  .recipe-instructions li {
+    font-size: 0.95rem; /* Slightly smaller text for mobile */
+    margin-bottom: 8px;
+  }
+}

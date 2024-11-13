@@ -1,0 +1,85 @@
+/* Ensure the navbar is fixed at the top and spans the width */
+header .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000; /* Keeps the navbar above other content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
+  align-items: center; /* Centers text vertically */
+}
+
+/* Adjust main content to avoid overlap with the fixed navbar */
+main {
+  padding-top: 80px; /* Ensures content sits below the navbar */
+}
+
+/* Navbar brand styling */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Navbar link styling */
+.navbar-nav {
+  display: flex;
+  align-items: center; /* Centers links vertically within the navbar */
+  margin-left: auto; /* Aligns nav links to the right */
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ddd;
+  background-color: rgba(255, 255, 255, 0.2); /* Adds subtle hover effect */
+}
+
+/* Ensure navbar is responsive */
+@media (max-width: 768px) {
+  .navbar-nav {
+    display: none; /* Initially hide the navbar items on small screens */
+    width: 100%;
+    text-align: center;
+    background-color: #dc3545; /* Adds a background color to the collapsed menu */
+    position: absolute;
+    top: 56px; /* Adjust this based on navbar height */
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    z-index: 999;
+  }
+
+  .navbar-nav.show {
+    display: block; /* Display the menu when toggled */
+  }
+
+  .navbar-toggler {
+    border-color: #fff; /* Optional: Makes the hamburger icon white */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' d='M5 7h20M5 15h20M5 23h20'%3E%3C/path%3E%3C/svg%3E");
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 10px; /* Adds space between menu items */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.2rem; /* Adjust the link font size */
+    color: #fff; /* Ensures the text is visible */
+    padding: 10px 20px;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Adds hover effect on small screens */
+  }
+}
